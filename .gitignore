@@ -75,5 +75,6 @@ crashlytics-build.properties
 .DS_Store
 /.idea/
 /[Ss]creenshots/
-Assets/Plugins/Demigiant/DOTweenPro Examples
-.DS_Store
+/[Aa]ssets/Plugins/Demigiant/DOTweenPro Examples
+/[Aa]ssets/TextMesh Pro/Documentation
+/[Aa]ssets/Plugins/Febucci/Text Animator/Example
