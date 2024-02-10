@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,8 @@ namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public event Action OnInteractPressed;
+
         [Header("Movement Stats")]
         [SerializeField, Range(0f, 20f)][Tooltip("Maximum movement speed")]
         public float maxSpeed = 10f;
@@ -30,6 +33,11 @@ namespace Player
             {
                 _directionX.Value = value.Get<float>();
             }
+        }
+        
+        public void OnInteract(InputValue value)
+        {
+            OnInteractPressed?.Invoke();
         }
         
         // Start is called before the first frame update
