@@ -2,11 +2,12 @@ using UnityEngine;
 
 namespace Player
 {
-    public class MovementLimiter : MonoBehaviour
+    public class InputLimiter : MonoBehaviour
     {
-        public static MovementLimiter Instance { get; private set; }
+        public static InputLimiter Instance { get; private set; }
 
         public bool CanMove { get; } = true;
+        public bool CanSwitch { get; } = true;
 
         void Awake()
         {
