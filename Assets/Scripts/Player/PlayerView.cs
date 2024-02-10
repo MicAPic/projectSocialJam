@@ -1,4 +1,3 @@
-using System;
 using UniRx;
 using UnityEngine;
 
@@ -21,16 +20,6 @@ namespace Player
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
-        }
-
-        void OnEnable()
-        {
-            playerController.OnSwitchModePressed += hearingAidView.ToggleNextHearingAid;
-        }
-        
-        void OnDisable()
-        {
-            playerController.OnSwitchModePressed -= hearingAidView.ToggleNextHearingAid;
         }
 
         // Start is called before the first frame update

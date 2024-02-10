@@ -1,39 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RoomEnterHandler : MonoBehaviour
+namespace Rooms
 {
-    [Header("RoomArgs")]
-    [SerializeField]
-    private AudioClip _ambient;
-
-    [Space(5)]
-
-    [Header("Events")]
-    public UnityEvent<PlayerEnterEventArgs> PlayerEnter;
-    public UnityEvent PlayerOut;
-
-    public bool IsMonsterHere = false;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class RoomEnterHandler : MonoBehaviour
     {
-        if (collision.TryGetComponent(out Player.PlayerController playerController))
+        [Header("RoomArgs")]
+        [SerializeField]
+        private AudioClip _ambient;
+
+        [Space]
+
+        [Header("Events")]
+        public UnityEvent<PlayerEnterEventArgs> PlayerEnter;
+        public UnityEvent PlayerOut;
+
+        public bool IsMonsterHere
         {
-            PlayerEnter?.Invoke(new PlayerEnterEventArgs()
+            get => _isMonsterHere;
+            set
             {
-                _cameraPosition = transform.position,
-                _ambient = _ambient
-            });
+                if (roomAudioSource != null)
+                    roomAudioSource.enabled = value;
+                _isMonsterHere = value;
+            }
         }
-    }
+        private bool _isMonsterHere;
+        
+        private AudioSource roomAudioSource;
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out Player.PlayerController playerController))
+        void Awake()
         {
-            PlayerOut?.Invoke();
+            roomAudioSource = GetComponentInChildren<AudioSource>();
+            roomAudioSource.enabled = false;
+        }
+
+        // void Start()
+        // {
+        //     
+        // }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out Player.PlayerController playerController))
+            {
+                PlayerEnter?.Invoke(new PlayerEnterEventArgs()
+                {
+                    cameraPosition = transform.position,
+                    ambient = _ambient
+                });
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out Player.PlayerController playerController))
+            {
+                PlayerOut?.Invoke();
+            }
         }
     }
 }

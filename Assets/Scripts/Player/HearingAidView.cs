@@ -1,3 +1,4 @@
+using UniRx;
 using UnityEngine;
 
 namespace Player
@@ -6,21 +7,32 @@ namespace Player
     {
         [SerializeField]
         private Sprite[] hearingAidSprites;
-
-        private int _current;
+        [SerializeField]
+        private GameObject lightIndicator;
+        
+        private HearingAidModel _hearingAidModel;
         private SpriteRenderer _spriteRenderer;
 
         void Awake()
         {
+            _hearingAidModel = GetComponent<HearingAidModel>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        public void ToggleNextHearingAid()
+        void Start()
         {
-            _current = (_current + 1) % hearingAidSprites.Length;
-            _spriteRenderer.sprite = hearingAidSprites[_current];
+            _hearingAidModel.IsUltraSound
+                .Subscribe(ToggleHearingAid)
+                .AddTo(this);
         }
-
+        
         public void FlipX(bool flip) => _spriteRenderer.flipX = flip;
+
+        private void ToggleHearingAid(bool state)
+        {
+            var index = state ? 1 : 0;
+            _spriteRenderer.sprite = hearingAidSprites[index];
+            lightIndicator.SetActive(state);
+        }
     }
 }

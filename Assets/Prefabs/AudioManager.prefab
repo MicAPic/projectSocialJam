@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 679985993213690868, guid: d7aae647b6ebc4f5e992afeea7b3a83b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5c983e1014dd34d10af2284788a3cad6, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -191,7 +191,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d7aae647b6ebc4f5e992afeea7b3a83b, type: 2}
   masterVolumeName: masterVolume
-  ambianceCrossFadeDuration: 3
+  monsterVolumeName: monsterVolume
+  transitionFadeDuration: 1
+  monsterFadeDuration: 0.15
+  ambianceCrossFadeDuration: 5
   ambiancePlayers:
   - {fileID: 1124748793116195683}
   - {fileID: 2610144637013047358}
@@ -366,7 +369,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1568556909400936662, guid: d7aae647b6ebc4f5e992afeea7b3a83b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2095f83df09394f9c82acfb845d5c619, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

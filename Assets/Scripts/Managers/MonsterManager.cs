@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
+using Rooms;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class MonsterManager : MonoBehaviour
 {
@@ -34,7 +29,7 @@ public class MonsterManager : MonoBehaviour
     }
     public void MoveNextRoom()
     {
-        //TODO: выключить текущий audiosource, включить audiosource в следующей комнате, установить соотетсвующее значение для IsMonsterHere
+        //TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ audiosource, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ audiosource пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ IsMonsterHere
         _currentRoom.IsMonsterHere = false;
         switch (_currentRoom.gameObject.name)
         {
@@ -63,7 +58,7 @@ public class MonsterManager : MonoBehaviour
                 Debug.Log("EndGame");
                 break;
         }
-        Debug.Log($"Монстр перешёл, в комнату:{_currentRoom.name}");
+        Debug.Log($"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ:{_currentRoom.name}");
         _currentRoom.IsMonsterHere = true;
     }
 
