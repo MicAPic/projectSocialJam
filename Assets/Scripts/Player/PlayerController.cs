@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
+    [SelectionBase]
     public class PlayerController : MonoBehaviour
     {
         public event Action OnInteractPressed;
