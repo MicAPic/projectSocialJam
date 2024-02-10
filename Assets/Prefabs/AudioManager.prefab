@@ -191,6 +191,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d7aae647b6ebc4f5e992afeea7b3a83b, type: 2}
   masterVolumeName: masterVolume
+  monsterVolumeName: monsterVolume
+  transitionFadeDuration: 1
+  monsterFadeDuration: 0.15
   ambianceCrossFadeDuration: 5
   ambiancePlayers:
   - {fileID: 1124748793116195683}

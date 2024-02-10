@@ -2,7 +2,6 @@ using System.Linq;
 using Rooms;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.InputSystem;
 
 namespace Audio
 {
@@ -17,7 +16,11 @@ namespace Audio
         [SerializeField]
         private string masterVolumeName;
         [SerializeField]
+        private string monsterVolumeName;
+        [SerializeField]
         private float transitionFadeDuration = 1.0f;
+        [SerializeField]
+        private float monsterFadeDuration = 0.15f;
         [SerializeField]
         private int ambianceCrossFadeDuration;
         [SerializeField]
@@ -46,14 +49,6 @@ namespace Audio
             FadeIn(masterVolumeName, transitionFadeDuration);
         }
 
-        // private void Update()
-        // {
-        //     if (Keyboard.current[Key.Space].wasPressedThisFrame)
-        //     {
-        //         CrossFadeAmbiances();
-        //     }
-        // }
-
         public void SwitchAmbiances(PlayerEnterEventArgs playerEnterEventArgs)
         {
             var firstPlayer = ambiancePlayers.First();
@@ -61,7 +56,6 @@ namespace Audio
             {
                 firstPlayer.AudioSource.clip = playerEnterEventArgs.ambient;
                 firstPlayer.AudioSource.Play();
-                Debug.LogWarning("huh");
                 return;
             }
             
@@ -71,6 +65,14 @@ namespace Audio
             CrossFadeAmbiances();
             
             _currentAmbianceIndex = _nextAmbianceIndex;
+        }
+
+        public void ToggleMonsterSounds(bool state)
+        {
+            if (state)
+                FadeIn(monsterVolumeName, monsterFadeDuration);
+            else
+                FadeOut(monsterVolumeName, monsterFadeDuration);
         }
 
         private void CrossFadeAmbiances()

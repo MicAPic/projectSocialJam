@@ -9,13 +9,36 @@ namespace Rooms
         [SerializeField]
         private AudioClip _ambient;
 
-        [Space(5)]
+        [Space]
 
         [Header("Events")]
         public UnityEvent<PlayerEnterEventArgs> PlayerEnter;
         public UnityEvent PlayerOut;
 
-        public bool IsMonsterHere = false;
+        public bool IsMonsterHere
+        {
+            get => _isMonsterHere;
+            set
+            {
+                if (roomAudioSource != null)
+                    roomAudioSource.enabled = value;
+                _isMonsterHere = value;
+            }
+        }
+        private bool _isMonsterHere;
+        
+        private AudioSource roomAudioSource;
+
+        void Awake()
+        {
+            roomAudioSource = GetComponentInChildren<AudioSource>();
+            roomAudioSource.enabled = false;
+        }
+
+        // void Start()
+        // {
+        //     
+        // }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
