@@ -1,3 +1,5 @@
+using System.Linq;
+using Rooms;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -15,13 +17,18 @@ namespace Audio
         [SerializeField]
         private string masterVolumeName;
         [SerializeField]
+        private float transitionFadeDuration = 1.0f;
+        [SerializeField]
         private int ambianceCrossFadeDuration;
         [SerializeField]
         private AudioPlayer[] ambiancePlayers = new AudioPlayer[2];
 
-        private const float MaxVolume = 0.0f;
-        private const float MinVolume = 1.0f;
+        private const float MaxVolume = 1.0f;
+        private const float MinVolume = 0.0f;
         private int _currentAmbianceIndex;
+        private int _nextAmbianceIndex;
+        private Coroutine _fadeInCoroutine;
+        private Coroutine _fadeOutCoroutine;
 
         void Awake()
         {
@@ -34,6 +41,11 @@ namespace Audio
             DontDestroyOnLoad(gameObject);
         }
 
+        void Start()
+        {
+            FadeIn(masterVolumeName, transitionFadeDuration);
+        }
+
         // private void Update()
         // {
         //     if (Keyboard.current[Key.Space].wasPressedThisFrame)
@@ -42,21 +54,43 @@ namespace Audio
         //     }
         // }
 
-        public void CrossFadeAmbiances()
+        public void SwitchAmbiances(PlayerEnterEventArgs playerEnterEventArgs)
+        {
+            var firstPlayer = ambiancePlayers.First();
+            if (firstPlayer.AudioSource.clip == null)
+            {
+                firstPlayer.AudioSource.clip = playerEnterEventArgs.ambient;
+                firstPlayer.AudioSource.Play();
+                Debug.LogWarning("huh");
+                return;
+            }
+            
+            _nextAmbianceIndex = (_currentAmbianceIndex + 1) % ambiancePlayers.Length;
+            ambiancePlayers[_nextAmbianceIndex].AudioSource.clip = playerEnterEventArgs.ambient;
+            ambiancePlayers[_nextAmbianceIndex].AudioSource.Play();
+            CrossFadeAmbiances();
+            
+            _currentAmbianceIndex = _nextAmbianceIndex;
+        }
+
+        private void CrossFadeAmbiances()
         {
             // fade out current ambiance source
+            if (_fadeOutCoroutine != null)
+                StopCoroutine(_fadeOutCoroutine);
+            Debug.Log($"1) {_currentAmbianceIndex}");
             FadeOut(ambiancePlayers[_currentAmbianceIndex].exposedVolumeName, ambianceCrossFadeDuration);
 
             // fade in next ambiance source
-            var nextAmbianceIndex = (_currentAmbianceIndex + 1) % ambiancePlayers.Length;
-            FadeIn(ambiancePlayers[nextAmbianceIndex].exposedVolumeName, ambianceCrossFadeDuration);
-
-            _currentAmbianceIndex = nextAmbianceIndex;
+            if (_fadeInCoroutine != null)
+                StopCoroutine(_fadeInCoroutine);
+            Debug.Log($"2) {_nextAmbianceIndex}");
+            FadeIn(ambiancePlayers[_nextAmbianceIndex].exposedVolumeName, ambianceCrossFadeDuration);
         }
 
         private void FadeIn(string exposedVolumeName, float duration)
         {
-            StartCoroutine(FadeMixerGroup.StartFade(
+            _fadeInCoroutine = StartCoroutine(FadeMixerGroup.StartFade(
                 audioMixer,
                 exposedVolumeName,
                 duration,
@@ -66,7 +100,7 @@ namespace Audio
 
         private void FadeOut(string exposedVolumeName, float duration)
         {
-            StartCoroutine(FadeMixerGroup.StartFade(
+            _fadeOutCoroutine = StartCoroutine(FadeMixerGroup.StartFade(
                 audioMixer,
                 exposedVolumeName,
                 duration,

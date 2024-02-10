@@ -1,39 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class RoomEnterHandler : MonoBehaviour
+namespace Rooms
 {
-    [Header("RoomArgs")]
-    [SerializeField]
-    private AudioClip _ambient;
-
-    [Space(5)]
-
-    [Header("Events")]
-    public UnityEvent<PlayerEnterEventArgs> PlayerEnter;
-    public UnityEvent PlayerOut;
-
-    public bool IsMonsterHere = false;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class RoomEnterHandler : MonoBehaviour
     {
-        if (collision.TryGetComponent(out Player.PlayerController playerController))
+        [Header("RoomArgs")]
+        [SerializeField]
+        private AudioClip _ambient;
+
+        [Space(5)]
+
+        [Header("Events")]
+        public UnityEvent<PlayerEnterEventArgs> PlayerEnter;
+        public UnityEvent PlayerOut;
+
+        public bool IsMonsterHere = false;
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            PlayerEnter?.Invoke(new PlayerEnterEventArgs()
+            if (collision.TryGetComponent(out Player.PlayerController playerController))
             {
-                _cameraPosition = transform.position,
-                _ambient = _ambient
-            });
+                PlayerEnter?.Invoke(new PlayerEnterEventArgs()
+                {
+                    cameraPosition = transform.position,
+                    ambient = _ambient
+                });
+            }
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.TryGetComponent(out Player.PlayerController playerController))
+        private void OnTriggerExit2D(Collider2D other)
         {
-            PlayerOut?.Invoke();
+            if (other.TryGetComponent(out Player.PlayerController playerController))
+            {
+                PlayerOut?.Invoke();
+            }
         }
     }
 }

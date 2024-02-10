@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Rooms;
 using UnityEngine;
 
 namespace Managers
@@ -11,7 +12,7 @@ namespace Managers
         private float _cameraSpeed = 1f;
         public void MoveCamToRoom(PlayerEnterEventArgs playerEnterEventArgs)
         {
-            Vector3 newPosition = playerEnterEventArgs._cameraPosition;
+            Vector3 newPosition = playerEnterEventArgs.cameraPosition;
             _camera?.transform.DOMove(new Vector3(newPosition.x, newPosition.y, -10), _cameraSpeed);
         }
     }
