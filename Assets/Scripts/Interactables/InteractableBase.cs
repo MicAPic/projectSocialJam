@@ -10,6 +10,12 @@ namespace Interactables
         public IReadOnlyReactiveProperty<bool> IsActive => _isActive;
         protected ReactiveProperty<bool> _isActive = new();
 
+        protected bool canUse = false;
+        public void MakeUsable()
+        {
+            canUse = true;
+        }
+
         protected virtual void OnTriggerEnter2D(Collider2D col)
         {
             if (!col.CompareTag("Player")) return;

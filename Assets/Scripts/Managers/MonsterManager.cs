@@ -60,7 +60,7 @@ public class MonsterManager : MonoBehaviour
                 _currentRoom = _atticRoom;
                 break;
             case "Attic":
-                //EndOfGame;
+                Debug.Log("EndGame");
                 break;
         }
         Debug.Log($"Монстр перешёл, в комнату:{_currentRoom.name}");
