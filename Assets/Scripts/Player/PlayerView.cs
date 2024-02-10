@@ -7,11 +7,16 @@ namespace Player
     {
         [SerializeField]
         private PlayerController playerController;
+        [SerializeField]
+        private float animatorStateSensitivity = 0.5f;
         private SpriteRenderer _spriteRenderer;
-        
+        private Animator _animator;
+        private readonly int _isWalking = Animator.StringToHash("IsWalking");
+
         void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _animator = GetComponent<Animator>();
         }
         
         // Start is called before the first frame update
@@ -19,7 +24,15 @@ namespace Player
         {
             playerController.Direction
                 .Where(x => x != 0)
-                .Subscribe(x => _spriteRenderer.flipY = x < 0)
+                .Subscribe(x =>
+                {
+                    _spriteRenderer.flipX = x < 0;
+                    _animator.SetBool(_isWalking, true);
+                })
+                .AddTo(this);
+            playerController.Direction
+                .Where(x => Mathf.Abs(x) < animatorStateSensitivity)
+                .Subscribe(x => _animator.SetBool(_isWalking, false))
                 .AddTo(this);
         }
 
