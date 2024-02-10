@@ -41,6 +41,11 @@ namespace Player
             OnInteractPressed?.Invoke();
         }
         
+        public void OnSwitchMode(InputValue value)
+        {
+            throw new NotImplementedException("Hearing aid switching is not implemented yet");
+        }
+        
         // Start is called before the first frame update
         // void Start()
         // {
