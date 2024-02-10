@@ -13,6 +13,8 @@ namespace Managers
 
         [SerializeField]
         private float maxFearValue = 100.0f;
+        [SerializeField, Range(0, 1)]
+        private float cooldownDecrement = 0.001f;
 
         void Awake()
         {
@@ -27,6 +29,12 @@ namespace Managers
             _currentFear = new ReactiveProperty<float>(0.0f);
         }
 
+        void LateUpdate()
+        {
+            // decrease fear with time
+            _currentFear.Value = Mathf.Clamp(_currentFear.Value - cooldownDecrement, 0.0f, maxFearValue);
+        }
+
         public void AddFear(float value)
         {
             _currentFear.Value += value;
@@ -34,6 +42,11 @@ namespace Managers
             {
                 throw new NotImplementedException("Death logic is not implemented yet");
             }
+        }
+
+        public float GetFearPercent()
+        {
+            return _currentFear.Value / maxFearValue;
         }
     }
 }

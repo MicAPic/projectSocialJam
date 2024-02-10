@@ -41,7 +41,7 @@ namespace Audio
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
 
         void Start()

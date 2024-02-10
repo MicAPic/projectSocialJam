@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 5060804873870408635}
+  fearIncrement: 0.16
 --- !u!1 &2502192642430376359
 GameObject:
   m_ObjectHideFlags: 0
