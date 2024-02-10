@@ -26,7 +26,7 @@ namespace Player
                 .AddTo(this);
         }
         
-        public void FlipX(bool flip) => _spriteRenderer.flipX = flip;
+        public void FlipX(bool flip) => transform.localScale = new Vector3(flip ? -1.0f : 1.0f, 1.0f, 1.0f);
 
         private void ToggleHearingAid(bool state)
         {
