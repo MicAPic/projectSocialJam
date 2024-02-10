@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Interactables
 {
-    public class StoryItem : InteractableBase
+    public class StoryItem : DialogueInteractable
     {
         [SerializeField]
         private InteractableBase _nextItem;
@@ -31,6 +31,7 @@ namespace Interactables
 
         protected override void Interact()
         {
+            base.Interact();
             if(TryGetComponent(out SpriteRenderer spriteRenderer))
             {
                 spriteRenderer.enabled = false;
