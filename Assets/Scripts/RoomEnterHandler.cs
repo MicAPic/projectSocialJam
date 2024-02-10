@@ -15,6 +15,8 @@ public class RoomEnterHandler : MonoBehaviour
     public UnityEvent<PlayerEnterEventArgs> PlayerEnter;
     public UnityEvent PlayerOut;
 
+    public bool IsMonsterHere = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player.PlayerController playerController))
@@ -27,7 +29,7 @@ public class RoomEnterHandler : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.TryGetComponent(out Player.PlayerController playerController))
         {
