@@ -8,7 +8,7 @@ namespace Interactables
     public abstract class InteractableBase : MonoBehaviour
     {
         public IReadOnlyReactiveProperty<bool> IsActive => _isActive;
-        private ReactiveProperty<bool> _isActive = new();
+        protected ReactiveProperty<bool> _isActive = new();
 
         protected virtual void OnTriggerEnter2D(Collider2D col)
         {
