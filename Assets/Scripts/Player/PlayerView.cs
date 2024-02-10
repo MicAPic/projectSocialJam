@@ -19,7 +19,8 @@ namespace Player
         {
             playerController.Direction
                 .Where(x => x != 0)
-                .Subscribe(x => _spriteRenderer.flipY = x < 0);
+                .Subscribe(x => _spriteRenderer.flipY = x < 0)
+                .AddTo(this);
         }
 
         // Update is called once per frame
