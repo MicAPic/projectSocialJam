@@ -1,3 +1,4 @@
+using System;
 using UniRx;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace Player
         private PlayerController playerController;
         [SerializeField]
         private float animatorStateSensitivity = 0.5f;
+        [SerializeField]
+        private HearingAidView hearingAidView;
+        
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
         private readonly int _isWalking = Animator.StringToHash("IsWalking");
@@ -18,7 +22,17 @@ namespace Player
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
         }
+
+        void OnEnable()
+        {
+            playerController.OnSwitchModePressed += hearingAidView.ToggleNextHearingAid;
+        }
         
+        void OnDisable()
+        {
+            playerController.OnSwitchModePressed -= hearingAidView.ToggleNextHearingAid;
+        }
+
         // Start is called before the first frame update
         void Start()
         {
@@ -27,6 +41,7 @@ namespace Player
                 .Subscribe(x =>
                 {
                     _spriteRenderer.flipX = x < 0;
+                    hearingAidView.FlipX(x < 0);
                     _animator.SetBool(_isWalking, true);
                 })
                 .AddTo(this);

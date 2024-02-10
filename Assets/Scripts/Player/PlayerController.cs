@@ -9,6 +9,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         public event Action OnInteractPressed;
+        public event Action OnSwitchModePressed;
 
         [Header("Movement Stats")]
         [SerializeField, Range(0f, 20f)][Tooltip("Maximum movement speed")]
@@ -30,7 +31,7 @@ namespace Player
         
         public void OnMove(InputValue value)
         {
-            if (MovementLimiter.Instance.CanMove)
+            if (InputLimiter.Instance.CanMove)
             {
                 _directionX.Value = value.Get<float>();
             }
@@ -43,6 +44,10 @@ namespace Player
         
         public void OnSwitchMode(InputValue value)
         {
+            if (InputLimiter.Instance.CanSwitch)
+            {
+                OnSwitchModePressed?.Invoke();
+            }
             throw new NotImplementedException("Hearing aid switching is not implemented yet");
         }
         
