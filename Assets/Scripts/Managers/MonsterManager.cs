@@ -1,4 +1,8 @@
+using Audio;
+using DG.Tweening;
+using Player;
 using Rooms;
+using UnityEditor;
 using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
@@ -19,6 +23,13 @@ public class MonsterManager : MonoBehaviour
     private RoomEnterHandler _childRoom;
     [SerializeField]
     private RoomEnterHandler _atticRoom;
+    
+    [SerializeField]
+    private AudioClip endGameClip;
+    [SerializeField]
+    private float transitionDuration = 3.0f;
+    [SerializeField]
+    private CanvasGroup transitionScreen;
 
     private RoomEnterHandler _currentRoom;
 
@@ -57,10 +68,39 @@ public class MonsterManager : MonoBehaviour
                 break;
             case "Attic":
                 Debug.Log("EndGame");
-                //
+                EndGame();
                 break;
         }
         Debug.Log($"������ �������, � �������:{_currentRoom.name}");
         _currentRoom.IsMonsterHere = true;
     }
+
+    private void EndGame()
+    {
+        InputLimiter.Instance.LimitInput(true);
+        AudioManager.Instance.StopBGM();
+            
+        AudioManager.Instance.PlaySoundEffect(endGameClip);
+
+        var sequence = DOTween.Sequence();
+        sequence.AppendInterval(5.0f);
+        sequence.AppendCallback(() =>
+        {
+            AudioManager.Instance.PlaySoundEffect(endGameClip);
+            AudioManager.Instance.FadeOutAll(transitionDuration);
+        });
+        sequence.AppendInterval(1.0f);
+        sequence.Append(transitionScreen.DOFade(3.0f, transitionDuration));
+        sequence.AppendCallback(() =>
+        {
+#if (UNITY_EDITOR)
+            EditorApplication.ExitPlaymode();
+#elif (UNITY_STANDALONE)
+            Application.Quit();
+#elif (UNITY_WEBGL)
+            Screen.fullScreen = false;
+            Application.ExternalEval("window.open('" + "about:blank" + "','_self')");
+#endif
+        });
+    } 
 }

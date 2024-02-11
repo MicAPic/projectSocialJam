@@ -4771,6 +4771,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1833010146 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 4357330651136746073, guid: d4517b22bd588493a95c7adb8344801b, type: 3}
+  m_PrefabInstance: {fileID: 1833010144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!61 &1835446433 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 1100550534990866877, guid: 24d2873dc3ed94bcebb28c0d58a2c57b, type: 3}
@@ -5529,6 +5534,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1760074289}
     - target: {fileID: 894350318987190875, guid: 53e7d6bd9d4d5431eb9296b8e8c2f193, type: 3}
+      propertyPath: endGameClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c012a46a859294a759af6a513f39ed42, type: 3}
+    - target: {fileID: 894350318987190875, guid: 53e7d6bd9d4d5431eb9296b8e8c2f193, type: 3}
       propertyPath: _kitchenRoom
       value: 
       objectReference: {fileID: 1018420993}
@@ -5540,6 +5549,10 @@ PrefabInstance:
       propertyPath: _basementRoom
       value: 
       objectReference: {fileID: 749823353}
+    - target: {fileID: 894350318987190875, guid: 53e7d6bd9d4d5431eb9296b8e8c2f193, type: 3}
+      propertyPath: transitionScreen
+      value: 
+      objectReference: {fileID: 1833010146}
     - target: {fileID: 8746491227114594141, guid: 53e7d6bd9d4d5431eb9296b8e8c2f193, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
