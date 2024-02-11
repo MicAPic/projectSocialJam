@@ -1,3 +1,5 @@
+using DG.Tweening;
+using TMPro;
 using UniRx;
 using UnityEngine;
 
@@ -5,12 +7,23 @@ namespace Player
 {
     public class PlayerView : MonoBehaviour
     {
+        [Header("References")]
         [SerializeField]
         private PlayerController playerController;
         [SerializeField]
-        private float animatorStateSensitivity = 0.5f;
-        [SerializeField]
         private HearingAidView hearingAidView;
+        
+        [Header("Animation")]
+        [SerializeField]
+        private float animatorStateSensitivity = 0.5f;
+        [Space]
+        [SerializeField]
+        private TMP_Text interactablePopUp;
+        [SerializeField]
+        private float interactableAnimationDuration = 1.0f;
+        [SerializeField]
+        private float interactableEndPosY = 0.5f;
+        private float interactableStartPosY;
         
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
@@ -20,6 +33,8 @@ namespace Player
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _animator = GetComponent<Animator>();
+
+            interactableStartPosY = interactablePopUp.rectTransform.anchoredPosition.y;
         }
 
         // Start is called before the first frame update
@@ -40,10 +55,14 @@ namespace Player
                 .AddTo(this);
         }
 
-        // Update is called once per frame
-        // void Update()
-        // {
-        //
-        // }
+        public void AnimateInteractable(bool state)
+        {
+            interactablePopUp.rectTransform.DOAnchorPosY(
+                state ? interactableEndPosY : interactableStartPosY, 
+                interactableAnimationDuration);
+            interactablePopUp.DOFade(
+                state ? 1.0f : 0.0f,
+                interactableAnimationDuration);
+        }
     }
 }

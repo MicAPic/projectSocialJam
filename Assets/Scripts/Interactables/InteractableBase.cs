@@ -1,3 +1,4 @@
+using Managers;
 using Player;
 using UniRx;
 using UnityEngine;
@@ -14,6 +15,11 @@ namespace Interactables
         public void MakeUsable()
         {
             canUse = true;
+        }
+
+        void Awake()
+        {
+            InteractableViewManager.Instance.RegisterInteractable(this);
         }
 
         protected virtual void OnTriggerEnter2D(Collider2D col)

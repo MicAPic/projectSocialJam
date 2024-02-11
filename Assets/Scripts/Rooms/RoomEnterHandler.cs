@@ -47,11 +47,6 @@ namespace Rooms
             fogRenderer.color = color;
         }
 
-        // void Start()
-        // {
-        //     
-        // }
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (!collision.CompareTag("Player")) return;
