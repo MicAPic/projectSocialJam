@@ -32,20 +32,28 @@ namespace Interactables
                 _isActive.Value = true;
             }
         }
-
+        private bool InteractFirstTime = false;
         protected override void Interact()
         {
             base.Interact();
-            if(TryGetComponent(out SpriteRenderer spriteRenderer))
+            if (!InteractFirstTime)
             {
-                spriteRenderer.transform.DOMove(transform.position - fadeOffset, fadeDuration);
-                spriteRenderer
-                    .DOColor(Color.clear, fadeDuration)
-                    .OnComplete(() => spriteRenderer.enabled = false);
+                if (TryGetComponent(out SpriteRenderer spriteRenderer))
+                {
+                    spriteRenderer.transform.DOMove(transform.position - fadeOffset, fadeDuration);
+                    spriteRenderer
+                        .DOColor(Color.clear, fadeDuration)
+                        .OnComplete(() => spriteRenderer.enabled = false);
+                }
+                _nextItem?.MakeUsable();
+                _monsterManager.MoveNextRoom();
+                InteractFirstTime = true;
+
             }
-            _nextItem?.MakeUsable();
-            canUse = false;
-            _monsterManager.MoveNextRoom();
+            //if(gameObject.name == "Key")
+            //{
+
+            //}
         }
 
         
