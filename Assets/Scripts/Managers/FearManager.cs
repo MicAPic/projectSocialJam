@@ -28,6 +28,13 @@ namespace Managers
             _currentFear = new ReactiveProperty<float>(0.0f);
         }
 
+        private bool _hasPlayerFlashLight = false;
+
+        public void PlayerFoundFlashLight()
+        {
+            _hasPlayerFlashLight = true;
+        }
+
         void LateUpdate()
         {
             if (GameOverManager.Instance.IsGameOver) return;
@@ -37,6 +44,7 @@ namespace Managers
 
         public void AddFear(float value)
         {
+            if (_hasPlayerFlashLight) return;
             _currentFear.Value += value;
             if (_currentFear.Value >= maxFearValue)
             {
