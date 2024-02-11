@@ -193,8 +193,9 @@ MonoBehaviour:
   bgmPlayer: {fileID: 646993641202747939}
   masterVolumeName: masterVolume
   monsterVolumeName: monsterVolume
+  bgmVolumeName: bgmVolume
   transitionFadeDuration: 1
-  monsterFadeDuration: 0.15
+  monsterFadeDuration: 0.33
   ambianceCrossFadeDuration: 5
   ambiancePlayers:
   - {fileID: 1124748793116195683}

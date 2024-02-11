@@ -81,6 +81,8 @@ AudioMixerController:
     name: ambianceVolumeA
   - guid: e52ad4112196c466dbe12918aaf5c677
     name: ambianceVolumeB
+  - guid: c7142d2c3a5de483e95adf8aa1e42290
+    name: bgmVolume
   - guid: 7f59053988bb94b959742f4ab3768e8f
     name: masterVolume
   - guid: b5e7385807c4442f0b7748ee632496a4

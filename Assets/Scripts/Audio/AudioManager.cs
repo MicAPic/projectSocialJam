@@ -21,6 +21,8 @@ namespace Audio
         [SerializeField]
         private string monsterVolumeName;
         [SerializeField]
+        private string bgmVolumeName;
+        [SerializeField]
         private float transitionFadeDuration = 1.0f;
         [SerializeField]
         private float monsterFadeDuration = 0.15f;
@@ -78,9 +80,15 @@ namespace Audio
         public void ToggleMonsterSounds(bool state)
         {
             if (state)
+            {
                 FadeIn(monsterVolumeName, monsterFadeDuration);
+                FadeOut(bgmVolumeName, monsterFadeDuration);
+            }
             else
+            {
+                FadeIn(bgmVolumeName, monsterFadeDuration);
                 FadeOut(monsterVolumeName, monsterFadeDuration);
+            }
         }
 
         private void CrossFadeAmbiances()
