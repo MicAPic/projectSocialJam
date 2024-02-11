@@ -74,5 +74,10 @@ namespace Player
                 state ? 1.0f : 0.0f,
                 interactableAnimationDuration);
         }
+
+        public void SetTriggerFoundFlashLight()
+        {
+            _animator.SetTrigger("FoundFlashLight");
+        }
     }
 }

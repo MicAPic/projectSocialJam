@@ -22,6 +22,9 @@ namespace Interactables
         [SerializeField]
         private BoxCollider2D _rightStairs;
 
+        [SerializeField]
+        private PlayerView _playerView;
+
 
         protected override void Start()
         {
@@ -57,10 +60,13 @@ namespace Interactables
                 InteractFirstTime = true;
                 if (gameObject.name == "Key")
                 {
-
                     _leftStairs.enabled = true;
                     _rightStairs.enabled = true;
                     FearManager.Instance.PlayerFoundFlashLight();
+                }
+                if(gameObject.name == "Flashlight")
+                {
+                    _playerView.SetTriggerFoundFlashLight();
                 }
             }
         }
