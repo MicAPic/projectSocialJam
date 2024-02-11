@@ -12,8 +12,11 @@ namespace Audio
         [SerializeField]
         private AudioMixer audioMixer;
         
+        [Header("Audio Sources")]
         [SerializeField]
         private AudioSource bgmPlayer;
+        [SerializeField]
+        private AudioSource sfxPlayer;
         
         [Header("Settings")]
         [SerializeField]
@@ -57,7 +60,12 @@ namespace Audio
         public void StopBGM()
         {
             bgmPlayer.Stop();
-        } 
+        }
+
+        public void PlaySoundEffect(AudioClip sfx)
+        {
+            sfxPlayer.PlayOneShot(sfx);
+        }
 
         public void SwitchAmbiances(PlayerEnterEventArgs playerEnterEventArgs)
         {

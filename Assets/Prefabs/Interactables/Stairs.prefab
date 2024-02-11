@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 6030448547932386033}
+  sfxHolder: {fileID: 11400000, guid: ace8d6a0a1d424af692c09b89c62e8b3, type: 2}
 --- !u!1 &5540387420196220799
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 3601126427386011897}
+  sfxHolder: {fileID: 11400000, guid: ace8d6a0a1d424af692c09b89c62e8b3, type: 2}
 --- !u!1 &8487459194624383460
 GameObject:
   m_ObjectHideFlags: 0

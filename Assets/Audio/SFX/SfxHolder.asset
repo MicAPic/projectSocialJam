@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208d2f41ffad425c8537028eea816499, type: 3}
+  m_Name: SfxHolder
+  m_EditorClassIdentifier: 
+  staircaseAudioClips:
+  - {fileID: 8300000, guid: 412a83112d982488a9bd0754353bf10d, type: 3}
+  - {fileID: 8300000, guid: a8ed5bdc637cf4dcd89fdba0e0bef13b, type: 3}
+  - {fileID: 8300000, guid: e7051a664f8a34c79983dfbf4734ec40, type: 3}
+  - {fileID: 8300000, guid: ef5ef24a915444544ae75d4c5ee10147, type: 3}
+  - {fileID: 8300000, guid: e9360360dda8544e5a28b59be59d4456, type: 3}
+  - {fileID: 8300000, guid: 9956b060aa4994cbe968ac7ed82bd496, type: 3}
