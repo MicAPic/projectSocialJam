@@ -23,12 +23,12 @@ namespace UI
             
             FearManager.Instance.Fear
                 .Where(x => x > 0.0f)
-                .Subscribe(_ => fearText.text = "<shake>fear</>")
+                .Subscribe(_ => fearText.text = "fear")
                 .AddTo(this);
             
             FearManager.Instance.Fear
                 .Where(x => x == 0.0f)
-                .Subscribe(_ => fearText.text = "fear")
+                .Subscribe(_ => fearText.text = "<shake>fear</>")
                 .AddTo(this);
         }
 
