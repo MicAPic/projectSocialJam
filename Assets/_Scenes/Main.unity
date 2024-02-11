@@ -573,7 +573,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed36510dbb572f4eb596d937347fcf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 20e442f9f8624a1d89e016d1d946bcf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &113887631
@@ -1566,7 +1566,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 16.875
+  orthographic size: 16.40625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2243,6 +2243,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18059d89435c6c64284ecd186ac0d8df, type: 3}
+--- !u!114 &673190723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1920058847093600491, guid: d4517b22bd588493a95c7adb8344801b, type: 3}
+  m_PrefabInstance: {fileID: 1833010144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922b805bc01c243e5853d9cbb544118c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &710895755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,6 +3239,11 @@ Transform:
   - {fileID: 749823351}
   m_Father: {fileID: 938756641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1254430770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8157358529285217213, guid: d4517b22bd588493a95c7adb8344801b, type: 3}
+  m_PrefabInstance: {fileID: 1833010144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1257405804 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7103042181841682612, guid: 72f48b01b5ad1457981ff04197a9ee8a, type: 3}
@@ -3370,7 +3386,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1534230365885701838, guid: 2a4050801660a044b89b3fdb80b1ca1f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2616184755090383091, guid: 2a4050801660a044b89b3fdb80b1ca1f, type: 3}
       propertyPath: m_IsActive
@@ -3533,6 +3549,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HearingAidInteractable
       objectReference: {fileID: 0}
+    - target: {fileID: 1880652066948581615, guid: 53c4a67de42e04fa3ba6fbd0a19e1b5e, type: 3}
+      propertyPath: exitWallBlock
+      value: 
+      objectReference: {fileID: 1996319082}
     - target: {fileID: 1880652066948581615, guid: 53c4a67de42e04fa3ba6fbd0a19e1b5e, type: 3}
       propertyPath: sideItemsHolder
       value: 
@@ -4733,7 +4753,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3450409272667108606, guid: d4517b22bd588493a95c7adb8344801b, type: 3}
   m_PrefabInstance: {fileID: 1833010144}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1254430770}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57a6945b90dcd0c4b81619c0d8b5c283, type: 3}
@@ -4981,6 +5001,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff2078b7696511a4cb6993f96f3fddf3, type: 3}
+--- !u!1 &1996319082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1534230365885701838, guid: 2a4050801660a044b89b3fdb80b1ca1f, type: 3}
+  m_PrefabInstance: {fileID: 1315397454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2053558858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5697212812890447281, guid: ff2078b7696511a4cb6993f96f3fddf3, type: 3}
@@ -5394,9 +5419,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1257405804}
     - target: {fileID: 1400851642349212951, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 1254430770}
+    - target: {fileID: 1400851642349212951, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
       propertyPath: lightsAnimator
       value: 
       objectReference: {fileID: 2076373823890632846}
+    - target: {fileID: 1400851642349212951, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
+      propertyPath: transitionEffect
+      value: 
+      objectReference: {fileID: 673190723}
     - target: {fileID: 8250995958915047512, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
