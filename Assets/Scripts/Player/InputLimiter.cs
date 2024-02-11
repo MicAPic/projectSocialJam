@@ -6,8 +6,8 @@ namespace Player
     {
         public static InputLimiter Instance { get; private set; }
 
-        public bool CanMove { get; } = true;
-        public bool CanSwitch { get; } = true;
+        public bool CanMove { get; private set; } = true;
+        public bool CanSwitch { get; private set; } = true;
 
         void Awake()
         {
@@ -18,6 +18,12 @@ namespace Player
             }
 
             Instance = this;
+        }
+
+        public void LimitInput(bool isOn)
+        {
+            CanMove = !isOn;
+            CanSwitch = !isOn;
         }
     }
 }

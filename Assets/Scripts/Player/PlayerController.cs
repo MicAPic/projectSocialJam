@@ -71,8 +71,13 @@ namespace Player
         private void Run()
         {
             velocity.x = desiredVelocity.x;
-
-            _rigidbody.velocity = velocity;
+            if (InputLimiter.Instance.CanMove)
+                _rigidbody.velocity = velocity;
+            else
+            {
+                _rigidbody.velocity = Vector2.zero;
+                _directionX.Value = 0.0f;
+            }
         }
     }
 }

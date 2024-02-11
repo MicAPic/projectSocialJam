@@ -1,3 +1,4 @@
+using Player;
 using UnityEngine;
 
 namespace Managers
@@ -5,6 +6,10 @@ namespace Managers
     public class GameOverManager : MonoBehaviour
     {
         public static GameOverManager Instance { get; private set; }
+
+        [SerializeField]
+        private Animator lightsAnimator;
+        private bool _isGameOver;
 
         void Awake()
         {
@@ -19,7 +24,12 @@ namespace Managers
 
         public void GameOver()
         {
-            // instantiate death VFX here
+            if (_isGameOver) return;
+            
+            _isGameOver = true;
+            lightsAnimator.SetTrigger("Blink");
+            InputLimiter.Instance.LimitInput(true);
+            
             Debug.Log("Game Over Triggered");
         }
     }
