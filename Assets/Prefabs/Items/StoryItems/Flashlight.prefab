@@ -143,5 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed36510dbb572f4eb596d937347fcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueInfo: {fileID: 11400000, guid: 581e44a40b62b49b0ab4018725752266, type: 2}
   _nextItem: {fileID: 0}
   _monsterManager: {fileID: 0}
