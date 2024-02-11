@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: SlippersDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - Daddy's slippers are so soft and cozy.
+  - Why did he leave them here?

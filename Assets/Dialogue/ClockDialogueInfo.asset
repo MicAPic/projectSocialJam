@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: ClockDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - The cuckoo hasn't popped out of the clock in a long time.
+  - Mommy said she flew far, far away.

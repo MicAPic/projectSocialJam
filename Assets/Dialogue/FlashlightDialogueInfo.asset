@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: FlashlightDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - It's not scary at all in the dark with a flashlight.
+  - I won't be hiding from scary monsters anymore.
+  - Let's find them and show them who's boss in this house.

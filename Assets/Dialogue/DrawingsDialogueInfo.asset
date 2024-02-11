@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: DrawingsDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - Daddy said to hang my drawings in the most noticeable place.

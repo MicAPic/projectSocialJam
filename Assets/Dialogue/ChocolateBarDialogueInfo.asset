@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: ChocolateBarDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - It's yummy! I just thought of something.
+  - There's a flashlight in the basement.
+  - But the key to the basement is in the hallway. Let's look for it there.

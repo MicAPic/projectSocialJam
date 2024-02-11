@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: PhoneDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - And who to call... I don't even know a single phone number.
+  - Okay, Mr. Bunbun, Daddy said chocolate helps you think.
+  - There was a bar in the kitchen. Come on, we'll think of something.

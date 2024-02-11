@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fceae07c9c72491fa7d5afced0f37e81, type: 3}
   m_Name: BedDialogueInfo
   m_EditorClassIdentifier: 
-  dialogueLines: []
+  dialogueLines:
+  - Where did mommy and daddy go?!
+  - Someone's wandering around the house... What should we do?!
+  - We need to call the police.
+  - There's a phone in the living room. Let's go, Mr. Bunbun.
