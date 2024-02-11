@@ -32,6 +32,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LivingRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 4211214567401602841, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
+      propertyPath: m_Size.x
+      value: 27.515724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211214567401602841, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.010931015
+      objectReference: {fileID: 0}
     - target: {fileID: 5686215263368212793, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
       propertyPath: m_Size.x
       value: 23.75
@@ -82,11 +90,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7818955608954117508, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
       propertyPath: m_LocalScale.x
-      value: 23.75
+      value: 27.492662
       objectReference: {fileID: 0}
     - target: {fileID: 7818955608954117508, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
       propertyPath: m_LocalScale.y
       value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818955608954117508, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0032
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
