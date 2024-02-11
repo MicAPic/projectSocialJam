@@ -1,3 +1,4 @@
+using Audio;
 using DG.Tweening;
 using TMPro;
 using UniRx;
@@ -51,11 +52,16 @@ namespace Player
                     _spriteRenderer.flipX = x < 0;
                     hearingAidView.FlipX(x < 0);
                     _animator.SetBool(_isWalking, true);
+                    AudioManager.Instance.ToggleFootsteps(true);
                 })
                 .AddTo(this);
             playerController.Direction
                 .Where(x => Mathf.Abs(x) < animatorStateSensitivity)
-                .Subscribe(x => _animator.SetBool(_isWalking, false))
+                .Subscribe(_ =>
+                {
+                    _animator.SetBool(_isWalking, false);
+                    AudioManager.Instance.ToggleFootsteps(false);
+                })
                 .AddTo(this);
         }
 

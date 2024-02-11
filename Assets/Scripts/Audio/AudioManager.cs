@@ -67,6 +67,17 @@ namespace Audio
             sfxPlayer.PlayOneShot(sfx);
         }
 
+        public void ToggleFootsteps(bool state)
+        {
+            if (state)
+            {
+                sfxPlayer.time = 0.0f;
+                sfxPlayer.Play();
+            }
+            else
+                sfxPlayer.Stop();
+        }
+
         public void SwitchAmbiances(PlayerEnterEventArgs playerEnterEventArgs)
         {
             var firstPlayer = ambiancePlayers.First();
