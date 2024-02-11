@@ -4507,6 +4507,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcd8129e27a441d4b90029ad626a243, type: 3}
+--- !u!95 &2076373823890632846 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4412138780582823857, guid: 8fcd8129e27a441d4b90029ad626a243, type: 3}
+  m_PrefabInstance: {fileID: 2076373823890632845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5100429945464762005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4515,6 +4520,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 263301639}
     m_Modifications:
+    - target: {fileID: 1400851642349212951, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
+      propertyPath: playerView
+      value: 
+      objectReference: {fileID: 1257405804}
+    - target: {fileID: 1400851642349212951, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
+      propertyPath: lightsAnimator
+      value: 
+      objectReference: {fileID: 2076373823890632846}
     - target: {fileID: 8250995958915047512, guid: d8a3893b3f207418ba5e82f041b50141, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
