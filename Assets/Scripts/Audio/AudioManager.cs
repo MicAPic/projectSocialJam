@@ -16,8 +16,7 @@ namespace Audio
         [Header("Audio Sources")]
         [SerializeField]
         private AudioSource bgmPlayer;
-        [SerializeField]
-        private AudioSource sfxPlayer;
+        public AudioSource sfxPlayer;
         
         [Header("Settings")]
         [SerializeField]
@@ -65,6 +64,11 @@ namespace Audio
         public void StopBGM()
         {
             bgmPlayer.Stop();
+        }
+
+        public void FadeOutAll(float duration)
+        {
+            FadeOut(masterVolumeName, duration);
         }
 
         public void PlaySoundEffect(AudioClip sfx = null)

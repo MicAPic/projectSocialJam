@@ -47,3 +47,4 @@ MonoBehaviour:
   lightsAnimator: {fileID: 0}
   playerView: {fileID: 0}
   monsterPrefab: {fileID: 9171556504405692495, guid: 20551fdb5903446778cd6af48ee48a73, type: 3}
+  gameOverClip: {fileID: 8300000, guid: 004ad8092eade45a9bc1f50536d4cff9, type: 3}

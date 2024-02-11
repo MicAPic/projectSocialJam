@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1972274919027661152}
   - component: {fileID: 9008149917837281249}
   - component: {fileID: 9047803517113650264}
+  - component: {fileID: 7550584123583220036}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
   logoStayDuration: 1
   logoDisappearanceDuration: 0.2
   introDialogue: {fileID: 11400000, guid: a863ca3d8df2c469fb1e147cf142d4f6, type: 2}
-  introClip: {fileID: 0}
+  introClip: {fileID: 8300000, guid: 162079c21822b4befa26f2964c2c5482, type: 3}
   activateOnFinish:
   - {fileID: 0}
 --- !u!82 &9047803517113650264
@@ -150,6 +151,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &7550584123583220036
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728252984256371007}
+  m_Enabled: 1
 --- !u!1 &7188437031999154721
 GameObject:
   m_ObjectHideFlags: 0

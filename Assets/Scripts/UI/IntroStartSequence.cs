@@ -29,10 +29,11 @@ public class IntroStartSequence : MonoBehaviour
         var sequence = DOTween.Sequence();
         sequence.Append(logo.DOFade(1.0f, logoAppearanceDuration));
         sequence.AppendInterval(logoStayDuration);
-        // sequence.AppendCallback(() => GetComponent<AudioSource>().PlayOneShot(introClip));
+        sequence.AppendCallback(() => GetComponent<AudioSource>().PlayOneShot(introClip));
         sequence.Append(logo.DOFade(0.0f, logoDisappearanceDuration));
 
         sequence.AppendInterval(logoStayDuration);
+        sequence.AppendCallback(() => GetComponent<AudioListener>().enabled = false);
         sequence.AppendCallback(() =>
         {
             foreach (var obj in activateOnFinish)
