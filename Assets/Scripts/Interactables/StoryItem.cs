@@ -19,7 +19,7 @@ namespace Interactables
         protected override void Start()
         {
             base.Start();
-            if(gameObject.name == "ParentsBed")
+            if (gameObject.name == "ParentsBed")
                 canUse = true;
         }
 

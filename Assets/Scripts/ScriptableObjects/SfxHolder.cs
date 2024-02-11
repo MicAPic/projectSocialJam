@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ScriptableObjects
 {
     [CreateAssetMenu(fileName = "SfxHolder", menuName = "ScriptableObject/SfxHolder", order = 2)]
-    public class SfxHolder : ScriptableObject
+    public class StaircaseSfxHolder : ScriptableObject
     {
         [SerializeField]
         private AudioClip[] staircaseAudioClips;

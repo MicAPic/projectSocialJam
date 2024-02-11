@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208d2f41ffad425c8537028eea816499, type: 3}
   m_Name: SfxHolder
   m_EditorClassIdentifier: 
+  defaultClip: {fileID: 8300000, guid: afea90407dd874c4590225570b309519, type: 3}
+  keyClip: {fileID: 0}
   staircaseAudioClips:
   - {fileID: 8300000, guid: 412a83112d982488a9bd0754353bf10d, type: 3}
   - {fileID: 8300000, guid: a8ed5bdc637cf4dcd89fdba0e0bef13b, type: 3}

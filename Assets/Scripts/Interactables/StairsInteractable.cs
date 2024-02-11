@@ -9,7 +9,7 @@ namespace Interactables
         [SerializeField]
         private Transform destination;
         [SerializeField]
-        private SfxHolder sfxHolder;
+        private StaircaseSfxHolder sfxHolder;
         
         private Transform _player;
         

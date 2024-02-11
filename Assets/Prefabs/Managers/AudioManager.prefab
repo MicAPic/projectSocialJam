@@ -330,6 +330,7 @@ MonoBehaviour:
   ambiancePlayers:
   - {fileID: 1124748793116195683}
   - {fileID: 2610144637013047358}
+  defaultSfx: {fileID: 8300000, guid: afea90407dd874c4590225570b309519, type: 3}
 --- !u!1 &5728044245742247073
 GameObject:
   m_ObjectHideFlags: 0

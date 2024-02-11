@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 
 namespace Audio
 {
+    // TODO: too much responsibility. needs refactoring
     public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance { get; private set; }
@@ -33,6 +34,10 @@ namespace Audio
         private int ambianceCrossFadeDuration;
         [SerializeField]
         private AudioPlayer[] ambiancePlayers = new AudioPlayer[2];
+        
+        [Header("Etc.")]
+        [SerializeField]
+        private AudioClip defaultSfx;
 
         private const float MaxVolume = 1.0f;
         private const float MinVolume = 0.0f;
@@ -62,9 +67,10 @@ namespace Audio
             bgmPlayer.Stop();
         }
 
-        public void PlaySoundEffect(AudioClip sfx)
+        public void PlaySoundEffect(AudioClip sfx = null)
         {
-            sfxPlayer.PlayOneShot(sfx);
+            var effect = sfx == null ? defaultSfx : sfx;
+            sfxPlayer.PlayOneShot(effect);
         }
 
         public void ToggleFootsteps(bool state)

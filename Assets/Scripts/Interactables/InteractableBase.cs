@@ -1,3 +1,4 @@
+using Audio;
 using Managers;
 using Player;
 using UniRx;
@@ -37,5 +38,10 @@ namespace Interactables
         }
 
         protected abstract void Interact();
+
+        protected void PlayDefaultEffect()
+        {
+            AudioManager.Instance.PlaySoundEffect();
+        }
     }
 }
