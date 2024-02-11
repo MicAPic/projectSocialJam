@@ -12,6 +12,11 @@ namespace Interactables
         protected override void Interact()
         {
             DialogueManager.Instance.Show(dialogueInfo);
+            PlaySfx();
+        }
+
+        protected virtual void PlaySfx()
+        {
             PlayDefaultEffect();
         }
     }

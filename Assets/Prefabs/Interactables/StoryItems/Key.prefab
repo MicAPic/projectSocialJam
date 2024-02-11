@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2556096487598831159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed36510dbb572f4eb596d937347fcf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 20e442f9f8624a1d89e016d1d946bcf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueInfo: {fileID: 11400000, guid: e4f1e2e0b84d64654b827a5d8a053042, type: 2}
@@ -148,3 +148,6 @@ MonoBehaviour:
   _monsterManager: {fileID: 0}
   fadeDuration: 0.2
   fadeOffset: {x: 0, y: -0.5, z: 0}
+  _leftStairs: {fileID: 0}
+  _rightStairs: {fileID: 0}
+  keyClip: {fileID: 8300000, guid: 8e3e861345bcd43cfae7d7b4bf70e2d5, type: 3}
