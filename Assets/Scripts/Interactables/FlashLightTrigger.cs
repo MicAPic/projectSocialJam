@@ -13,6 +13,13 @@ namespace Interactables
         [SerializeField]
         private MonsterManager _monsterManager;
 
+        [SerializeField]
+        private GameObject monsterPrefab;
+
+        [SerializeField]
+        private Transform monsterPosition;
+
+
         protected override void OnTriggerEnter2D(Collider2D col)
         {
             if (canUse)
@@ -24,9 +31,11 @@ namespace Interactables
         protected override void Interact()
         {
             _monsterManager.MoveNextRoom();
+            Instantiate(monsterPrefab, monsterPosition);
             _nextItem?.MakeUsable();
             canUse = false;
-            gameObject.SetActive(false);
+            GetComponent<BoxCollider2D>().enabled = false;
+            //TODO:add effect monsterdamage + disapearedt
         }
     }
 }
