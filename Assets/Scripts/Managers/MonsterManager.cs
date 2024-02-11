@@ -83,7 +83,7 @@ public class MonsterManager : MonoBehaviour
         AudioManager.Instance.PlaySoundEffect(endGameClip);
 
         var sequence = DOTween.Sequence();
-        sequence.AppendInterval(5.0f);
+        sequence.AppendInterval(7.0f);
         sequence.AppendCallback(() =>
         {
             AudioManager.Instance.PlaySoundEffect(endGameClip);
