@@ -1,6 +1,5 @@
+using DG.Tweening;
 using Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interactables
@@ -9,12 +8,17 @@ namespace Interactables
     {
         [SerializeField]
         private InteractableBase _nextItem;
-
         [SerializeField]
         private MonsterManager _monsterManager;
+        
+        [SerializeField] 
+        private float fadeDuration = .2f;
+        [SerializeField] 
+        private Vector3 fadeOffset = Vector3.down;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             if(gameObject.name == "ParentsBed")
                 canUse = true;
         }
@@ -34,12 +38,14 @@ namespace Interactables
             base.Interact();
             if(TryGetComponent(out SpriteRenderer spriteRenderer))
             {
-                spriteRenderer.enabled = false;
+                spriteRenderer.transform.DOMove(transform.position - fadeOffset, fadeDuration);
+                spriteRenderer
+                    .DOColor(Color.clear, fadeDuration)
+                    .OnComplete(() => spriteRenderer.enabled = false);
             }
             _nextItem?.MakeUsable();
             canUse = false;
             _monsterManager.MoveNextRoom();
-            //TODO:диалог: что делать дальше
         }
 
         

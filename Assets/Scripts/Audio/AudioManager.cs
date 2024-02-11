@@ -44,7 +44,7 @@ namespace Audio
             // DontDestroyOnLoad(gameObject);
         }
 
-        void Start()
+        public void Initialize()
         {
             FadeIn(masterVolumeName, transitionFadeDuration);
         }

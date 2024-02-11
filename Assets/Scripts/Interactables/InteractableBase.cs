@@ -17,7 +17,7 @@ namespace Interactables
             canUse = true;
         }
 
-        void Start()
+        protected virtual void Start()
         {
             InteractableViewManager.Instance.RegisterInteractable(this);
         }
