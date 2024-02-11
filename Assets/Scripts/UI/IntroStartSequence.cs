@@ -32,6 +32,7 @@ public class IntroStartSequence : MonoBehaviour
         // sequence.AppendCallback(() => GetComponent<AudioSource>().PlayOneShot(introClip));
         sequence.Append(logo.DOFade(0.0f, logoDisappearanceDuration));
 
+        sequence.AppendInterval(logoStayDuration);
         sequence.AppendCallback(() =>
         {
             foreach (var obj in activateOnFinish)
