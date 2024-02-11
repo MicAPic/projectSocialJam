@@ -1,4 +1,3 @@
-using System;
 using UniRx;
 using UnityEngine;
 
@@ -31,6 +30,7 @@ namespace Managers
 
         void LateUpdate()
         {
+            if (GameOverManager.Instance.IsGameOver) return;
             // decrease fear with time
             _currentFear.Value = Mathf.Clamp(_currentFear.Value - cooldownDecrement, 0.0f, maxFearValue);
         }

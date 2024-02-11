@@ -44,3 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a61bb5a053c40238bf02a007b8434ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightsAnimator: {fileID: 0}
+  playerView: {fileID: 0}
+  monsterPrefab: {fileID: 9171556504405692495, guid: 20551fdb5903446778cd6af48ee48a73, type: 3}

@@ -7,9 +7,14 @@ namespace Managers
     {
         public static GameOverManager Instance { get; private set; }
 
+        public bool IsGameOver { get; private set; }
+        
         [SerializeField]
         private Animator lightsAnimator;
-        private bool _isGameOver;
+        [SerializeField]
+        private PlayerView playerView;
+        [SerializeField]
+        private GameObject monsterPrefab;
 
         void Awake()
         {
@@ -24,11 +29,13 @@ namespace Managers
 
         public void GameOver()
         {
-            if (_isGameOver) return;
+            if (IsGameOver) return;
             
-            _isGameOver = true;
+            IsGameOver = true;
             lightsAnimator.SetTrigger("Blink");
             InputLimiter.Instance.LimitInput(true);
+
+            Instantiate(monsterPrefab, playerView.monsterSpawnPoint);
             
             Debug.Log("Game Over Triggered");
         }

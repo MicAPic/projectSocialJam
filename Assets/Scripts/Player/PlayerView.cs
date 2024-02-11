@@ -25,6 +25,10 @@ namespace Player
         private float interactableEndPosY = 0.5f;
         private float interactableStartPosY;
         
+        [Space]
+        
+        public Transform monsterSpawnPoint;
+        
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
         private readonly int _isWalking = Animator.StringToHash("IsWalking");
