@@ -11,6 +11,7 @@ namespace Managers
         private float _cameraSpeed = 1f;
         
         private Camera _camera;
+        private Tween moveTween;
 
         private void Awake()
         {
@@ -20,7 +21,9 @@ namespace Managers
         public void MoveCamToRoom(PlayerEnterEventArgs playerEnterEventArgs)
         {
             Vector3 newPosition = playerEnterEventArgs.cameraPosition;
-            _camera.transform.DOMove(new Vector3(newPosition.x, newPosition.y, -10), _cameraSpeed);
+            if (moveTween != null)
+                moveTween.Complete();
+            moveTween = _camera.transform.DOMove(new Vector3(newPosition.x, newPosition.y, -10), _cameraSpeed);
         }
     }
 }
