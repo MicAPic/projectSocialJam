@@ -52,6 +52,11 @@ namespace Audio
             bgmPlayer.Play();
         }
 
+        public void StopBGM()
+        {
+            bgmPlayer.Stop();
+        } 
+
         public void SwitchAmbiances(PlayerEnterEventArgs playerEnterEventArgs)
         {
             var firstPlayer = ambiancePlayers.First();

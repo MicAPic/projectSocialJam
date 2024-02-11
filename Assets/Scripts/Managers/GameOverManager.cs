@@ -1,3 +1,4 @@
+using Audio;
 using Player;
 using UnityEngine;
 
@@ -34,6 +35,7 @@ namespace Managers
             IsGameOver = true;
             lightsAnimator.SetTrigger("Blink");
             InputLimiter.Instance.LimitInput(true);
+            AudioManager.Instance.StopBGM();
 
             Instantiate(monsterPrefab, playerView.monsterSpawnPoint);
             
