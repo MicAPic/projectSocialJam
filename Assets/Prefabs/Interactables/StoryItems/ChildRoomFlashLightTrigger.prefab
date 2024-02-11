@@ -148,6 +148,7 @@ MonoBehaviour:
   _monsterManager: {fileID: 0}
   monsterPrefab: {fileID: 9171556504405692495, guid: 20551fdb5903446778cd6af48ee48a73, type: 3}
   monsterPosition: {fileID: 1258183993763734204}
+  damageSound: {fileID: 8300000, guid: d9c1e770411d6b64f8bd4a4653d6ee99, type: 3}
 --- !u!1 &7210750242631852044
 GameObject:
   m_ObjectHideFlags: 0
