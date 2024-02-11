@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLines:
   - I can't find them without my hearing aid.
-  - Pressing Q helps me focus on voices.
+  - Pressing <bounce>Q</bounce> helps me focus on voices.
   - ...
   - I should probably avoid rooms with scary noises...
