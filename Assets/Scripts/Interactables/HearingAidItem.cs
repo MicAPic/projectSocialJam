@@ -12,6 +12,8 @@ namespace Interactables
         private GameObject sideItemsHolder;
         [SerializeField]
         private GameObject hearingAidOnPlayer;
+        [SerializeField]
+        private GameObject exitWallBlock;
         
         [Header("Animation")]
         [SerializeField] 
@@ -63,7 +65,8 @@ namespace Interactables
             canUse = false;
             hearingAidOnPlayer.SetActive(true);
             AudioManager.Instance.Initialize();
-            
+            exitWallBlock.SetActive(false);
+
             DialogueManager.Instance.OnDialogueFinished += ActivateSideItems;
         }
 
