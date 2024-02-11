@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090163994210816782, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
       propertyPath: m_Name
-      value: LivingRoom Variant
+      value: LivingRoom
       objectReference: {fileID: 0}
     - target: {fileID: 5686215263368212793, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
       propertyPath: m_Size.x
@@ -79,6 +79,14 @@ PrefabInstance:
     - target: {fileID: 6226369122864259502, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818955608954117508, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 23.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818955608954117508, guid: 4fd60016aa0017544a78d0e2feb95031, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
