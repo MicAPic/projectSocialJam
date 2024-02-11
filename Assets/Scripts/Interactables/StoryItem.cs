@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Managers;
 using Player;
 using UnityEngine;
 
@@ -15,6 +16,12 @@ namespace Interactables
         private float fadeDuration = .2f;
         [SerializeField] 
         private Vector3 fadeOffset = Vector3.down;
+
+        [SerializeField]
+        private BoxCollider2D _leftStairs;
+        [SerializeField]
+        private BoxCollider2D _rightStairs;
+
 
         protected override void Start()
         {
@@ -48,12 +55,14 @@ namespace Interactables
                 _nextItem?.MakeUsable();
                 _monsterManager.MoveNextRoom();
                 InteractFirstTime = true;
+                if (gameObject.name == "Key")
+                {
 
+                    _leftStairs.enabled = true;
+                    _rightStairs.enabled = true;
+                    FearManager.Instance.PlayerFoundFlashLight();
+                }
             }
-            //if(gameObject.name == "Key")
-            //{
-
-            //}
         }
 
         

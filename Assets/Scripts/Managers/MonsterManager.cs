@@ -57,6 +57,7 @@ public class MonsterManager : MonoBehaviour
                 break;
             case "Attic":
                 Debug.Log("EndGame");
+                //
                 break;
         }
         Debug.Log($"������ �������, � �������:{_currentRoom.name}");
