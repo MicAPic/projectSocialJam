@@ -12,6 +12,9 @@ namespace Audio
         [SerializeField]
         private AudioMixer audioMixer;
         
+        [SerializeField]
+        private AudioSource bgmPlayer;
+        
         [Header("Settings")]
         [SerializeField]
         private string masterVolumeName;
@@ -41,12 +44,12 @@ namespace Audio
             }
 
             Instance = this;
-            // DontDestroyOnLoad(gameObject);
         }
 
         public void Initialize()
         {
             FadeIn(masterVolumeName, transitionFadeDuration);
+            bgmPlayer.Play();
         }
 
         public void SwitchAmbiances(PlayerEnterEventArgs playerEnterEventArgs)

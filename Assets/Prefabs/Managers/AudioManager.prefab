@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: d7aae647b6ebc4f5e992afeea7b3a83b, type: 2}
+  bgmPlayer: {fileID: 646993641202747939}
   masterVolumeName: masterVolume
   monsterVolumeName: monsterVolume
   transitionFadeDuration: 1
@@ -240,8 +241,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3333899343195470369, guid: d7aae647b6ebc4f5e992afeea7b3a83b, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 758494ed1a5684e7e80a7ef6514d5ce5, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

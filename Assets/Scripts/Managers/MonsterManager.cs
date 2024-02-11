@@ -26,10 +26,11 @@ public class MonsterManager : MonoBehaviour
     private void Start()
     {
         _currentRoom = _livingRoom;
+        _currentRoom.IsMonsterHere = true;
     }
+    
     public void MoveNextRoom()
     {
-        //TODO: ��������� ������� audiosource, �������� audiosource � ��������� �������, ���������� ������������� �������� ��� IsMonsterHere
         _currentRoom.IsMonsterHere = false;
         switch (_currentRoom.gameObject.name)
         {
@@ -61,6 +62,4 @@ public class MonsterManager : MonoBehaviour
         Debug.Log($"������ �������, � �������:{_currentRoom.name}");
         _currentRoom.IsMonsterHere = true;
     }
-
-
 }
