@@ -23,6 +23,7 @@
 using UnityEngine;
 using System.Collections;
 using System.IO; // included for access to File IO such as Directory class
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Handles taking a screenshot of the game.
@@ -98,7 +99,7 @@ public class ScreenshotUtility : MonoBehaviour
         //    if (Input.GetKeyDown(m_ScreenshotKey.ToLower()))
 
         // But, we will use the new Unity Input System to check for input on the Keyboard
-        if (Input.GetKeyDown(m_ScreenshotKey))
+        if (Keyboard.current.cKey.IsPressed())
         {
             TakeScreenshot();
         }

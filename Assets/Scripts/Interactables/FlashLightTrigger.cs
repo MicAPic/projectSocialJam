@@ -50,7 +50,6 @@ namespace Interactables
             _nextItem?.MakeUsable();
             canUse = false;
             GetComponent<BoxCollider2D>().enabled = false;
-            //TODO:add effect monsterdamage + disapearedt
         }
     }
 }
