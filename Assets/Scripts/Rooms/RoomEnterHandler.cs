@@ -1,3 +1,5 @@
+using System;
+using Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -49,6 +51,9 @@ namespace Rooms
                     cameraPosition = transform.position,
                     ambient = _ambient
                 });
+                
+                if (!_isMonsterHere) return;
+                FearManager.Instance.AddFear(float.MaxValue);
             }
         }
 

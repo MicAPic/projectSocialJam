@@ -40,7 +40,7 @@ namespace Managers
             _currentFear.Value += value;
             if (_currentFear.Value >= maxFearValue)
             {
-                throw new NotImplementedException("Death logic is not implemented yet");
+                GameOverManager.Instance.GameOver();
             }
         }
 
