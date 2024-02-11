@@ -29,6 +29,10 @@ namespace Player
         [Space]
         
         public Transform monsterSpawnPoint;
+
+        [Space]
+        
+        public GameObject flashlight;
         
         private SpriteRenderer _spriteRenderer;
         private Animator _animator;
@@ -78,6 +82,7 @@ namespace Player
         public void SetTriggerFoundFlashLight()
         {
             _animator.SetTrigger("FoundFlashLight");
+            flashlight.SetActive(true);
         }
     }
 }

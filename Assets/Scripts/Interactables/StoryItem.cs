@@ -64,7 +64,7 @@ namespace Interactables
                     _rightStairs.enabled = true;
                     FearManager.Instance.PlayerFoundFlashLight();
                 }
-                if(gameObject.name == "Flashlight")
+                if (gameObject.name == "Flashlight")
                 {
                     _playerView.SetTriggerFoundFlashLight();
                 }
