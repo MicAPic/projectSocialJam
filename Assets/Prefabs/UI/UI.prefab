@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: fear
+  m_text: <shake a=0.1>fear</shake>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee0446d02b23f43fc83e46972df94b8d, type: 2}
   m_sharedMaterial: {fileID: 765420841170096625, guid: ee0446d02b23f43fc83e46972df94b8d, type: 2}
