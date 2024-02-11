@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typewriter: {fileID: 0}
-  timeBetweenLines: 1.5
+  timeBetweenLines: 2.5
