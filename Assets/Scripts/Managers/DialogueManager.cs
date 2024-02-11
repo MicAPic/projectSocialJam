@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using Febucci.UI.Core;
 using ScriptableObjects;
@@ -8,7 +9,9 @@ namespace Managers
     public class DialogueManager : MonoBehaviour
     {
         public static DialogueManager Instance { get; private set; }
-        
+
+        public event Action OnDialogueFinished; 
+
         [SerializeField]
         private TypewriterCore typewriter;
         [SerializeField]
@@ -60,7 +63,10 @@ namespace Managers
                 typewriter.ShowText(_currentDialogueInfo.dialogueLines[_currentLine] + 
                                      $"<waitfor={timeBetweenLines.ToString(CultureInfo.InvariantCulture)}>");
             else
+            {
                 typewriter.StartDisappearingText();
+                OnDialogueFinished?.Invoke();
+            }
         }
 
         private void Restart()
