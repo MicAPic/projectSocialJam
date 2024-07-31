@@ -8,21 +8,21 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     [SerializeField]
-    private RoomEnterHandler _livingRoom;
+    private Room _livingRoom;
     [SerializeField]
-    private RoomEnterHandler _basementRoom;
+    private Room _basementRoom;
     [SerializeField]
-    private RoomEnterHandler _garageRoom;
+    private Room _garageRoom;
     [SerializeField]
-    private RoomEnterHandler _parentsRoom;
+    private Room _parentsRoom;
     [SerializeField]
-    private RoomEnterHandler _kitchenRoom;
+    private Room _kitchenRoom;
     [SerializeField]
-    private RoomEnterHandler _WCRoom;
+    private Room _WCRoom;
     [SerializeField]
-    private RoomEnterHandler _childRoom;
+    private Room _childRoom;
     [SerializeField]
-    private RoomEnterHandler _atticRoom;
+    private Room _atticRoom;
     
     [SerializeField]
     private AudioClip endGameClip;
@@ -31,7 +31,7 @@ public class MonsterManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup transitionScreen;
 
-    private RoomEnterHandler _currentRoom;
+    private Room _currentRoom;
 
 
     private void Start()

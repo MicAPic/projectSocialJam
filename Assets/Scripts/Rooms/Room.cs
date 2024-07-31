@@ -1,3 +1,4 @@
+using Audio;
 using DG.Tweening;
 using Managers;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.Events;
 
 namespace Rooms
 {
-    public class RoomEnterHandler : MonoBehaviour
+    public class Room : MonoBehaviour
     {
         [Header("RoomArgs")]
         [SerializeField]
@@ -28,20 +29,16 @@ namespace Rooms
             get => _isMonsterHere;
             set
             {
-                if (roomAudioSource != null)
-                    roomAudioSource.enabled = value;
+                AudioManager.Instance.SetMonsterAudioAt(transform.position);
                 _isMonsterHere = value;
             }
         }
         private bool _isMonsterHere;
         
-        private AudioSource roomAudioSource;
+        // private AudioSource roomAudioSource;
 
         void Awake()
         {
-            roomAudioSource = GetComponentInChildren<AudioSource>();
-            roomAudioSource.enabled = false;
-
             var color = fogRenderer.color;
             color = new Color(color.r, color.g, color.b, 1.0f);
             fogRenderer.color = color;
@@ -51,7 +48,7 @@ namespace Rooms
         {
             if (!collision.CompareTag("Player")) return;
             
-            FadeOut();
+            FadeOutFog();
                 
             PlayerEnter?.Invoke(new PlayerEnterEventArgs()
             {
@@ -67,17 +64,17 @@ namespace Rooms
         {
             if (!other.CompareTag("Player")) return;
             
-            FadeIn();
+            FadeInFog();
                 
             PlayerOut?.Invoke();
         }
 
-        private void FadeIn()
+        private void FadeInFog()
         {
             fogRenderer.DOFade(1.0f, fogFadeSpeed);
         }
 
-        private void FadeOut()
+        private void FadeOutFog()
         {
             fogRenderer.DOFade(0.0f, fogFadeSpeed);
         }

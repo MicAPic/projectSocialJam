@@ -48,7 +48,7 @@ namespace Managers
             InputLimiter.Instance.LimitInput(true);
             AudioManager.Instance.StopBGM();
             
-            AudioManager.Instance.PlaySoundEffect(gameOverClip);
+            AudioManager.Instance.ForcePlaySoundEffectAt(gameOverClip, playerView.transform.position);
             dialogueBox.SetActive(false);
             Instantiate(monsterPrefab, playerView.monsterSpawnPoint);
             

@@ -17,6 +17,7 @@ namespace Audio
         [SerializeField]
         private AudioSource bgmPlayer;
         public AudioSource sfxPlayer;
+        public AudioSource monsterPlayer;
         
         [Header("Settings")]
         [SerializeField]
@@ -74,7 +75,13 @@ namespace Audio
         public void PlaySoundEffect(AudioClip sfx = null)
         {
             var effect = sfx == null ? defaultSfx : sfx;
+            Debug.LogWarning($"Started: {effect.name}");
             sfxPlayer.PlayOneShot(effect);
+        }
+        
+        public void ForcePlaySoundEffectAt(AudioClip sfx, Vector3 position)
+        {
+            AudioSource.PlayClipAtPoint(sfx, position);
         }
 
         public void ToggleFootsteps(bool state)
@@ -104,6 +111,11 @@ namespace Audio
             CrossFadeAmbiances();
             
             _currentAmbianceIndex = _nextAmbianceIndex;
+        }
+        
+        public void SetMonsterAudioAt(Vector3 position)
+        {
+            monsterPlayer.transform.position = position;
         }
 
         public void ToggleMonsterSounds(bool state)
