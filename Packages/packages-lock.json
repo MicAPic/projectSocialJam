@@ -7,6 +7,14 @@
       "dependencies": {},
       "hash": "332340e7bc2f8257816dd28784607a1edf6b6c2a"
     },
+    "com.micapic.unitools": {
+      "version": "file:com.micapic.unitools",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.textmeshpro": "1.0.23"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
