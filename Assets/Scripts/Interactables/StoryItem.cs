@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Managers;
 using Player;
+using UniTools.Extensions;
 using UnityEngine;
 
 namespace Interactables
@@ -42,11 +43,12 @@ namespace Interactables
                 _isActive.Value = true;
             }
         }
-        private bool InteractFirstTime = false;
+        
+        private bool interactFirstTime;
         protected override void Interact()
         {
             base.Interact();
-            if (!InteractFirstTime)
+            if (!interactFirstTime)
             {
                 if (TryGetComponent(out SpriteRenderer spriteRenderer))
                 {
@@ -55,9 +57,12 @@ namespace Interactables
                         .DOColor(Color.clear, fadeDuration)
                         .OnComplete(() => spriteRenderer.enabled = false);
                 }
-                _nextItem?.MakeUsable();
+                
+                if (_nextItem.IsNotNull())
+                    _nextItem.MakeUsable();
+                
                 _monsterManager.MoveNextRoom();
-                InteractFirstTime = true;
+                interactFirstTime = true;
                 if (gameObject.name == "Key")
                 {
                     _leftStairs.enabled = true;

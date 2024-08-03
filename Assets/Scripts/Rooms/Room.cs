@@ -34,8 +34,6 @@ namespace Rooms
             }
         }
         private bool _isMonsterHere;
-        
-        // private AudioSource roomAudioSource;
 
         void Awake()
         {

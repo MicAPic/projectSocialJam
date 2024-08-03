@@ -21,11 +21,5 @@ namespace UI
                 .Subscribe(_ => barFill.fillAmount = FearManager.Instance.GetFearPercent())
                 .AddTo(this);
         }
-
-        // Update is called once per frame
-        // void Update()
-        // {
-        //
-        // }
     }
 }

@@ -1,7 +1,6 @@
 using Audio;
-using Player;
-using System.Collections;
-using System.Collections.Generic;
+using Monster;
+using UniTools.Extensions;
 using UnityEngine;
 
 namespace Interactables
@@ -38,16 +37,19 @@ namespace Interactables
             var monster = Instantiate(monsterPrefab, monsterPosition);
             if (gameObject.name == "AtticFlashLightTrigger")
             {
-                monster.GetComponent<MonsterController>().SetAnimatorDeath();
+                monster.GetComponent<MonsterAnimationController>().SetAnimatorDeath();
                 Debug.Log("LastWord");
             }
             else
             {
-                monster.GetComponent<MonsterController>().SetAnimatorTakeDamage();
+                monster.GetComponent<MonsterAnimationController>().SetAnimatorTakeDamage();
                 Debug.Log("Damage");
             }
             AudioManager.Instance.PlaySoundEffect(damageSound);
-            _nextItem?.MakeUsable();
+
+            if (_nextItem.IsNotNull())
+                _nextItem.MakeUsable();
+            
             canUse = false;
             GetComponent<BoxCollider2D>().enabled = false;
         }
